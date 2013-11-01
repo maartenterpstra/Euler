@@ -10,8 +10,8 @@ def collatz(n, l):
 	l = add_item(l, n)
 	if n == 1:
 		return len(l)
-	elif n % 2 == 0:
-		return collatz(n/2, l)
+	elif (n & 1) == 0:
+		return collatz(n >> 1, l)
 	else:
 		return collatz(3*n + 1, l)
 
