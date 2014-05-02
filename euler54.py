@@ -11,53 +11,15 @@ class Card:
 	def getSuit(self):
 		return self.suit
 
-	def __eq__(self, other):
-		if isinstance(other, Card):
-			return self.rank == other.rank and self.suit == other.suit
-		return NotImplemented
-
 	def __lt__(self, other):
 		if isinstance(other, Card):
 			return self.rank < other.rank
 		return NotImplemented
 
-	def __gt__(self, other):
-		if isinstance(other, Card):
-			return not self.__eq__(other) and not self.__lt__(other)
-		return NotImplemented
-
-	def __ne__(self, other):
-		if isinstance(other, Card):
-			return not self.__eq__(other)
-		return NotImplemented
-
-	def __ge__(self, other):
-		if isinstance(other, Card):
-			return self.__eq__(other) or self.__gt__(other)
-		return NotImplemented
-
-	def __le__(self, other):
-		if isinstance(other, Card):
-			return self.__eq__(other) or self.__lt__(other)
-
-		return NotImplemented
-
-	def __str__(self):
-		return "({0}, {1})".format(self.rank, self.suit)
-
-	def __repr__(self):
-		return self.__str__()
-
 class Hand:
 	def __init__(self, cards):
 		self.cards = cards
-
-	def __repr__(self):
-		return self.cards.__str__()
-
-	def __str__(self):
-		return self.__repr__()
-
+		
 	def getCards(self):
 		return self.cards
 
@@ -71,45 +33,33 @@ class Hand:
 		self.cards.append(card)
 
 	def getNthHighest(self, n):
-		cardList = sorted(self.cards, key=lambda x: x.rank, reverse=True)
-		return cardList[n].rank
+		return self.cards[4 - n].rank
 
 	def getPair(self):
-		cardList = sorted(self.cards)
 		try:
-			return next((x, y) for x, y in itertools.combinations(cardList, 2) if x.rank ==  y.rank and x != y)
+			return next((x, y) for x, y in itertools.combinations(self.cards, 2) if x.rank ==  y.rank and x != y)
 		except:
 			return None
 
 	def getTwoPairs(self):
-		cardList = sorted(self.cards)
 		try:
-			return next(((x, y), (a, b)) for x, y, a, b in itertools.combinations(cardList, 4) if ((x.rank ==  y.rank and x != y) and (a.rank == b.rank and a != b)) and x != a and x != b)
+			return next(((x, y), (a, b)) for x, y, a, b in itertools.combinations(self.cards, 4) if ((x.rank ==  y.rank and x != y) and (a.rank == b.rank and a != b)) and x != a and x != b)
 		except:
 			return None
 
 	def getThreeOfAKind(self):
-		ret = None
-		cardList = sorted(self.cards)
-		combos = zip(cardList, cardList[1:], cardList[2:])
-		for (x, y, z) in combos:
-			if x.rank == y.rank == z.rank:
-				ret = (x, y, z)
-				break
-
-		return ret
+		try:
+			return next((x, y, z) for x, y, z in zip(self.cards, self.cards[1:], self.cards[2:]) if x.rank == y.rank == z.rank)
+		except:
+			return None
 
 	def getStraight(self):
-		cardList = sorted(self.cards)
-		for x in range(1, len(cardList)):
-			#print cardList[x].rank
-			if cardList[x].rank - 1 != cardList[x-1].rank:
-				return None
-
-		return self.cards
+		temp = [x for (x, y) in zip(self.cards, self.cards[1:]) if x.rank + 1 == y.rank]
+		temp.append(self.cards[4])
+		return self.cards if temp == self.cards else None
 
 	def getFlush(self):
-		return self.cards if len([x for x in self.cards if x.getSuit() == self.cards[0].getSuit()]) == len(self.cards) else None
+		return self.cards if [x for x in self.cards if x.getSuit() == self.cards[0].getSuit()] == self.cards else None
 
 	def getFullHouse(self):
 		if self.getThreeOfAKind() == None:
@@ -123,8 +73,7 @@ class Hand:
 		return None
 
 	def getFourOfAKind(self):
-		cardList = sorted(self.cards)
-		foakList = [(w, x, y, z) for w, x, y, z in (zip(cardList, cardList[1:], cardList[2:], cardList[3:])) if w.rank == x.rank == y.rank == z.rank]
+		foakList = [(w, x, y, z) for w, x, y, z in (zip(self.cards, self.cards[1:], self.cards[2:], self.cards[3:])) if w.rank == x.rank == y.rank == z.rank]
 		return foakList if len(foakList) > 0 else None
 
 	def getStraightFlush(self):
@@ -134,31 +83,30 @@ class Hand:
 		return None
 
 	def getRoyalFlush(self):
-		cardList = sorted(self.cards)
-		if self.getStraightFlush() != None and cardList[0].rank == 10:
+		if self.getStraightFlush() != None and self.cards[0].rank == 10:
 			return self.cards
 
 		return None
 
 	def getScore(self):
 		if self.getRoyalFlush():
-			return (100, 100)
+			return (23, 23)
 		elif self.getStraightFlush():
-			return (99, self.getStraightFlush()[0].rank)
+			return (22, self.getStraightFlush()[0].rank)
 		elif self.getFourOfAKind():
-			return (98, self.getFourOfAKind()[0].rank)
+			return (21, self.getFourOfAKind()[0].rank)
 		elif self.getFullHouse():
-			return (97, self.getThreeOfAKind()[0].rank)
+			return (20, self.getThreeOfAKind()[0].rank)
 		elif self.getFlush():
-			return (96, self.getFlush()[0].rank)
+			return (19, self.getFlush()[0].rank)
 		elif self.getStraight():
-			return (95, self.getStraight()[0].rank)
+			return (18, self.getStraight()[0].rank)
 		if self.getThreeOfAKind():
-			return (94, self.getThreeOfAKind()[0].rank)
+			return (17, self.getThreeOfAKind()[0].rank)
 		elif self.getTwoPairs():
-			return (93, 0)
+			return (16, 0)
 		elif self.getPair():
-			return (92, self.getPair()[0].rank)
+			return (15, self.getPair()[0].rank)
 		else: 
 			return self.getNthHighest(0)
 
@@ -199,7 +147,7 @@ for hands in lines:
 		card = Card(getCardScore(x[0]), x[1])
 		list1.append(card)
 
-	h1 = Hand(list1)
+	h1 = Hand(sorted(list1))
 
 	tempList1 = hands.split()[5:]
 	list2 = []
@@ -207,7 +155,7 @@ for hands in lines:
 		card = Card(getCardScore(x[0]), x[1])
 		list2.append(card)
 
-	h2 = Hand(list2)
+	h2 = Hand(sorted(list2))
 
 	if h1 > h2:
 		playerOneWins += 1
