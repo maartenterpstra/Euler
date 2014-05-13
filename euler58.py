@@ -24,4 +24,4 @@ while score > Decimal(0.1):
 	numsOnDiagonals = 2*n - 1
 	score = Decimal(primes)/Decimal(numsOnDiagonals)
 
-print n
+print n, score
