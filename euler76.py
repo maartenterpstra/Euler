@@ -10,6 +10,7 @@ class Memoize:
 def partition(n, maxVal = None):
 	if n == 0:
 		return 1
+		
 	sum = 0
 	maxVal = n if maxVal == None else maxVal
 	minVal = min(maxVal, n)
