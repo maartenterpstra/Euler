@@ -15,6 +15,4 @@ for d in xrange(1,limit):
 			if f < FracLimit and f > maxFrac:
 				maxFrac = f
 				maxN = n
-
-#fracs = sorted(fracs, key=lambda x: Decimal(Decimal(x.numerator) / Decimal(x.denominator)), reverse=True)
-print maxFrac
+print maxN
