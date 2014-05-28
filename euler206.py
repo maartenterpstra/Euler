@@ -13,4 +13,3 @@ while upperBoundary > lowerBoundary:
 	if pattern.match(square):
 		print square, upperBoundary
 		break
-	upperBoundary -= 2
