@@ -33,10 +33,11 @@ def testPrimes(testPrimes, searchLen = 8):
 	for prime in testPrimes:
 		primeStr = str(prime)
 		uniqueChars = set(list(primeStr))
-		for c in uniqueChars:
+		for uniqueChar in uniqueChars:
 			primeList = []
-			for j in xrange(ord('0'), ord('9') + 1):
-				replaced = int(primeStr.replace(c, chr(j)))
+			for replacementChar in xrange(ord('0'), ord('9') + 1):
+				replaced = int(primeStr.replace(uniqueChar, chr(replacementChar)))
+				# second check needed because of trailing zeros
 				if isPrime(replaced) and len(str(replaced)) == len(primeStr):
 					primeList.append(replaced)
 
