@@ -4,8 +4,10 @@ def factorial(n):
 
 	return n * factorial(n - 1)
 
+# precompute all factorial for every digit
 fac = [factorial(x) for x in range(10)]
 
+#is the sum of the factorial of the digits equal to itself?
 def isFactoriolDigitSum(n):
 	return sum(map(lambda x: fac[x], [int(i) for i in str(n)])) == n
 
