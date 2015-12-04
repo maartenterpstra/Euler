@@ -5,6 +5,8 @@ def fibonacci(n):
     return _fib(n)[0]
 
 # (Private) Returns the tuple (F(n), F(n+1)).
+
+
 def _fib(n):
     if n == 0:
         return (0, 1)

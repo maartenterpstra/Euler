@@ -43,16 +43,16 @@ class CFraction(list):
         return "[%s]" % ", ".join([str(x) for x in self])
 
 if __name__ == "__main__":
-	sqrtList = [1]
-	maxLen = 1000
-	sqrtList.extend([2 for i in range(1, maxLen + 1)])
+    sqrtList = [1]
+    maxLen = 1000
+    sqrtList.extend([2 for i in range(1, maxLen + 1)])
 
-	count = 0
-	cf  = CFraction(sqrtList)
-	for t in xrange(1, len(cf)):
-		frac = cf.fraction(t)
-		split = str(frac).split('/')
-		if len(split[0]) > len(split[1]):
-			count += 1
+    count = 0
+    cf = CFraction(sqrtList)
+    for t in xrange(1, len(cf)):
+        frac = cf.fraction(t)
+        split = str(frac).split('/')
+        if len(split[0]) > len(split[1]):
+            count += 1
 
-	print count
+    print count

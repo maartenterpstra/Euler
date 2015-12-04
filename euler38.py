@@ -19,4 +19,5 @@ for x in range(1, 10):
             l.add((newNum, x, t))
 
 (num, numMult, base) = max(l)
-print("Largest pandigital number is {0} ({1} * [1..{2}])".format(num, base, numMult))
+print(
+    "Largest pandigital number is {0} ({1} * [1..{2}])".format(num, base, numMult))
