@@ -16,7 +16,6 @@ for x in range(1, 10):
         multRange = [z + 1 for z in range(x)]
         newNum = int(''.join([str(t * u) for u in multRange]))
         if (isPandigital(newNum)):
-            # print(x, newNum)
             l.add((newNum, x, t))
 
 (num, numMult, base) = max(l)
