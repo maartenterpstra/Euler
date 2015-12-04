@@ -5168,4 +5168,4 @@ def getScore(name):
     return sum(ord(x) - ord('A') + 1 for x in name)
 
 names.sort()
-print sum((i + 1) * getScore(names[i]) for i in range(len(names)))
+print(sum((i + 1) * getScore(names[i]) for i in range(len(names))))

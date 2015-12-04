@@ -5,7 +5,7 @@ class Memoize:
         self.memo = {}
 
     def __call__(self, *args):
-        if not args in self.memo:
+        if args not in self.memo:
             self.memo[args] = self.f(*args)
         return self.memo[args]
 
@@ -23,4 +23,4 @@ def partition(n, maxVal=None):
     return sum
 
 partition = Memoize(partition)
-print(partition(100) - 1)
+print((partition(100) - 1))

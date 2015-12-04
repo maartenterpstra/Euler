@@ -20,7 +20,7 @@ maxA = 0
 maxB = 0
 limits = 1000
 
-l = [x for x in xrange(1 - limits, limits) if isPrime(abs(x))]
+l = [x for x in range(1 - limits, limits) if isPrime(abs(x))]
 for a in l:
     for b in l:
         n = 0
@@ -36,5 +36,6 @@ for a in l:
             maxA = a
             maxB = b
 
-print "n^2 {0} {1}n {2} {3} produces primes for {4} consecutive values of n".format("-" if maxA < 0 else "+", abs(maxA), "-" if maxB < 0 else "+", abs(maxB), maxPrimes)
-print "The product of {0} and {1} is {2}".format(maxA, maxB, maxProd)
+print("n^2 {0} {1}n {2} {3} produces primes for {4} consecutive values of n".format(
+    "-" if maxA < 0 else "+", abs(maxA), "-" if maxB < 0 else "+", abs(maxB), maxPrimes))
+print("The product of {0} and {1} is {2}".format(maxA, maxB, maxProd))

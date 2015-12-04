@@ -35,10 +35,10 @@ def findLength(n):
 
 count = 0
 limit = 10000
-items = (i for i in xrange(2, limit + 1) if isqrt(i) ** 2 != i)
-print "Generated items"
+items = (i for i in range(2, limit + 1) if isqrt(i) ** 2 != i)
+print("Generated items")
 for i in items:
     if findLength(i) & 1:
         count += 1
 
-print count
+print(count)

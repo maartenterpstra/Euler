@@ -6,4 +6,4 @@ def numPaths(n):
     facN = factorial(n)
     return factorial(2 * n) / (facN * facN)
 
-print numPaths(20)
+print((numPaths(20)))

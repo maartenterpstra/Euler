@@ -23,4 +23,4 @@ def getNthPrime(n):
                 return subject
         subject += 2
 
-print getNthPrime(100001)
+print(getNthPrime(100001))

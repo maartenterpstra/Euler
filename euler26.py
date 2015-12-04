@@ -21,7 +21,7 @@ maxLen = -1
 maxNum = -1
 limit = 1000
 
-for i in [x for x in xrange(2, limit + 1) if isPrime(x)][::-1]:
+for i in [x for x in range(2, limit + 1) if isPrime(x)][::-1]:
     if maxLen > i:
         break
     found = [0] * i
@@ -37,4 +37,4 @@ for i in [x for x in xrange(2, limit + 1) if isPrime(x)][::-1]:
         maxLen = length
         maxNum = i
 
-print maxNum, maxLen
+print(maxNum, maxLen)

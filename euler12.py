@@ -13,4 +13,4 @@ def getTriangleNumbers():
         yield getNthTriangleNumber(i)
         i += 1
 
-print next(x for x in getTriangleNumbers() if getLengthFactors(x) > 500)
+print((next(x for x in getTriangleNumbers() if getLengthFactors(x) > 500)))

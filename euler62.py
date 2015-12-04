@@ -14,14 +14,14 @@ def eachItemIsPermutationOfEachOther(values):
 
 def findMinCubePerm(cubeDict, numPerms=5):
     minVal = 999**numPerms
-    for values in [q for q in cubeDict.values() if len(q) == numPerms]:
+    for values in [q for q in list(cubeDict.values()) if len(q) == numPerms]:
         if eachItemIsPermutationOfEachOther(values):
             minVal = min(minVal, min(values))
     return minVal
 
 limit = 10000
 cubes = {}
-for cuboid in [x * x * x for x in xrange(limit)]:
+for cuboid in [x * x * x for x in range(limit)]:
     sortedCuboid = ''.join(sorted(list(str(cuboid))))
 
     if sortedCuboid not in cubes:
@@ -30,4 +30,4 @@ for cuboid in [x * x * x for x in xrange(limit)]:
         cubes[sortedCuboid].append(cuboid)
 
 minCubePerm = findMinCubePerm(cubes)
-print minCubePerm
+print(minCubePerm)

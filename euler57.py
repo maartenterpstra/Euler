@@ -49,10 +49,10 @@ if __name__ == "__main__":
 
     count = 0
     cf = CFraction(sqrtList)
-    for t in xrange(1, len(cf)):
+    for t in range(1, len(cf)):
         frac = cf.fraction(t)
         split = str(frac).split('/')
         if len(split[0]) > len(split[1]):
             count += 1
 
-    print count
+    print(count)

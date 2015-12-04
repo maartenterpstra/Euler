@@ -48,8 +48,11 @@ class Hand:
 
     def getTwoPairs(self):
         try:
-            return next(((x, y), (a, b)) for x, y, a, b in itertools.combinations(self.cards, 4) if (
-                (x.rank == y.rank and x != y) and (a.rank == b.rank and a != b)) and x != a and x != b)
+            return next(
+                ((x, y), (a, b)) for x, y, a, b in itertools.combinations(
+                    self.cards, 4) if (
+                    (x.rank == y.rank and x != y) and (
+                        a.rank == b.rank and a != b)) and x != a and x != b)
         except:
             return None
 
@@ -75,16 +78,15 @@ class Hand:
             return None
 
         # See if there is a pair left if you remove the three of a kind
-        remaining = filter(
-            lambda x: x not in self.getThreeOfAKind(), self.cards)
+        remaining = [x for x in self.cards if x not in self.getThreeOfAKind()]
         if remaining[0].rank == remaining[1].rank:
             return self.cards
 
         return None
 
     def getFourOfAKind(self):
-        foakList = [(w, x, y, z) for w, x, y, z in (zip(self.cards, self.cards[
-            1:], self.cards[2:], self.cards[3:])) if w.rank == x.rank == y.rank == z.rank]
+        foakList = [(w, x, y, z) for w, x, y, z in (list(zip(self.cards, self.cards[
+            1:], self.cards[2:], self.cards[3:]))) if w.rank == x.rank == y.rank == z.rank]
         return foakList if len(foakList) > 0 else None
 
     def getStraightFlush(self):

@@ -34,7 +34,7 @@ class Triangle:
 
 def testSides(triangle):
     sides = triangle.getSides()
-    sidesSquared = sorted(map(lambda x: x * x, sides))
+    sidesSquared = sorted([x * x for x in sides])
     return abs(sidesSquared[0] + sidesSquared[1] - sidesSquared[2]) < 0.0001
 
 
@@ -59,10 +59,10 @@ def InLine(x, y, z):
 
 limit = 50
 points = [Point(x, y) for x in range(limit + 1) for y in range(limit + 1)]
-print "Generated Points"
+print("Generated Points")
 origin = Point(0, 0)
 possibleTriangles = (Triangle(x, y, z) for (x, y, z) in itertools.combinations(
     points, 3) if x == origin and not InLine(x, y, z))
-print "Generated Triangles"
+print("Generated Triangles")
 
-print(numOfRightTriangles(possibleTriangles, limit))
+print((numOfRightTriangles(possibleTriangles, limit)))

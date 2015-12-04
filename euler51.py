@@ -8,7 +8,7 @@ def sieve(limit):
     for (i, isprime) in enumerate(a):
         if isprime:
             yield i
-            for n in xrange(i * i, limit, i):     # Mark factors non-prime
+            for n in range(i * i, limit, i):     # Mark factors non-prime
                 a[n] = False
 
 # sqrt(1000000000) = 31622
@@ -33,7 +33,7 @@ def isPrime(n):
             return False
     return True
 
-primeList = (x for x in xrange(100, 10 ** 6) if isPrime(x))
+primeList = (x for x in range(100, 10 ** 6) if isPrime(x))
 
 
 def testPrimes(testPrimes, searchLen=8):
@@ -42,7 +42,7 @@ def testPrimes(testPrimes, searchLen=8):
         uniqueChars = set(list(primeStr))
         for uniqueChar in uniqueChars:
             primeList = []
-            for replacementChar in xrange(ord('0'), ord('9') + 1):
+            for replacementChar in range(ord('0'), ord('9') + 1):
                 replaced = int(primeStr.replace(
                     uniqueChar, chr(replacementChar)))
                 # second check needed because of trailing zeros
@@ -50,6 +50,6 @@ def testPrimes(testPrimes, searchLen=8):
                     primeList.append(replaced)
 
             if len(primeList) == searchLen:
-                print primeList
+                print(primeList)
                 return min(primeList)
-print testPrimes(primeList)
+print(testPrimes(primeList))

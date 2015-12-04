@@ -14,15 +14,15 @@ def isPandigital(i, j, prod):
     return all(h == 1 for h in hist)
 
 prods = []
-for i in xrange(2, 2000):
-    for j in xrange(i + 1, 2000):
+for i in range(2, 2000):
+    for j in range(i + 1, 2000):
         prod = i * j
         # if prod is higher than 10000 the number is too large to be pandigital
         # because the length would greater than 10 numbers -> pidgeon hole
         # principle
         if prod > 10000:
             break
-        if isPandigital(i, j, prod) and not prod in prods:
+        if isPandigital(i, j, prod) and prod not in prods:
             prods.append(i * j)
 
-print sum(prods)
+print(sum(prods))

@@ -65,4 +65,4 @@ for x in range(m):
         maxVal = max(maxVal, right, down, up, left, right,
                      diagUL, diagDR, diagUR, diagDL)
 
-print maxVal
+print(maxVal)

@@ -11,4 +11,4 @@ lm = 1
 for x in range(2, 21):
     lm = lcm(x, lm)
 
-print lm
+print(lm)

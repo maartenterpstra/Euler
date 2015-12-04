@@ -20,4 +20,4 @@ def getPrimeFactor(n):
     return max([x for x in range(2, int(n**0.5) + 1) if n %
                 x == 0 and isPrime(x)])
 
-print(getPrimeFactor(600851475143))
+print((getPrimeFactor(600851475143)))

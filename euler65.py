@@ -29,4 +29,4 @@ if __name__ == "__main__":
     numerator = str(frac).split('/')[0]
     numbersInNumerator = [int(i) for i in list(numerator)]
 
-    print sum(numbersInNumerator)
+    print(sum(numbersInNumerator))

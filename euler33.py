@@ -28,4 +28,4 @@ for i in range(10, limit):
 
 # Result is denominator of reduced fraction. The Fraction class does
 # reduction automatically
-print reduce(lambda x, y: x * y, fracs).denominator
+print(reduce(lambda x, y: x * y, fracs).denominator)

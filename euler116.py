@@ -23,4 +23,4 @@ for i in range(nMin, nMax + 1):
     cache = [0] * (length + 1)
     solutions += findWays(length, i, cache)
 
-print solutions
+print(solutions)

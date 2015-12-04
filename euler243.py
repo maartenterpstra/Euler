@@ -10,8 +10,8 @@ def findUpper(upperLim):
     for p in primes:
         d *= p
         s *= (p - 1)
-        for i in xrange(2, p):
+        for i in range(2, p):
             if s * i / (d * i - 1.0) < upperLim:
                 return d * i
 
-print findUpper(upperLim)
+print(findUpper(upperLim))

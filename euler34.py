@@ -11,6 +11,6 @@ fac = [factorial(x) for x in range(10)]
 
 
 def isFactoriolDigitSum(n):
-    return sum(map(lambda x: fac[x], [int(i) for i in str(n)])) == n
+    return sum([fac[x] for x in [int(i) for i in str(n)]]) == n
 
-print sum([x for x in xrange(3, 10 ** 5) if isFactoriolDigitSum(x)])
+print(sum([x for x in range(3, 10 ** 5) if isFactoriolDigitSum(x)]))

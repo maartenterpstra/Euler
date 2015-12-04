@@ -16,4 +16,4 @@ for year in range(1901, 2001):
         if date(year, month, 1).weekday() == 6:
             i += 1
 
-print i
+print(i)

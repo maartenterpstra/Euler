@@ -11,4 +11,4 @@ def check(x):
     i = d(x)
     return i != x and d(i) == x
 
-print sum(x for x in range(1, 10000) if check(x))
+print((sum(x for x in range(1, 10000) if check(x))))

@@ -14,4 +14,4 @@ def possibilities(num, maxcoin=0):
             s = s + possibilities(num - coins[i], i)
     return s
 
-print possibilities(200)
+print(possibilities(200))

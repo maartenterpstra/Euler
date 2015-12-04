@@ -11,4 +11,4 @@ def isPrime(x):
 
     return True
 
-print sum(x for x in range(2, 2000000) if isPrime(x))
+print((sum(x for x in range(2, 2000000) if isPrime(x))))

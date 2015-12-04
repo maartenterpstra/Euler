@@ -29,11 +29,11 @@ limit = 1000
 squares = [a * a for a in range(33)]
 maxX = 0
 maxD = 0
-Ds = filter(lambda x: x not in squares, range(2, limit + 1))
+Ds = [x for x in range(2, limit + 1) if x not in squares]
 for d in Ds:
     a = chakravala(d)
     if a > maxX:
         maxX = a
         maxD = d
 
-print maxX, maxD
+print(maxX, maxD)

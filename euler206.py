@@ -11,5 +11,5 @@ while upperBoundary > lowerBoundary:
     square = str(upperBoundary * upperBoundary)
 
     if pattern.match(square):
-        print square, upperBoundary
+        print((square, upperBoundary))
         break

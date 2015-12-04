@@ -15,4 +15,4 @@ for i in range(len(lines)):
     if num > maxNums[1]:
         maxNums = (i + 1, num)
 
-print maxNums
+print(maxNums)

@@ -10,5 +10,5 @@ diagLength = 1001
 # 	leftBottom  = squared - 3*x + 3
 # 	s = s + rightBottom + leftBottom + rightTop + leftTop
 
-s = sum(4 * x * x - 6 * x + 6 for x in xrange(3, diagLength + 1, 2)) + 1
-print s
+s = sum(4 * x * x - 6 * x + 6 for x in range(3, diagLength + 1, 2)) + 1
+print(s)

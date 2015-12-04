@@ -12,7 +12,7 @@ def sieve(limit):
     for (i, isprime) in enumerate(a):
         if isprime:
             yield i
-            for n in xrange(i * i, limit, i):     # Mark factors non-prime
+            for n in range(i * i, limit, i):     # Mark factors non-prime
                 a[n] = False
 
 # sqrt(1000000000) = 31622
@@ -60,14 +60,20 @@ def isPermutation(a, b):
 
 def findMinimalRatio(limit):
     sqrtLimit = int(limit ** 0.5)
-    testPrimes = filter(lambda x: x in xrange(
-        sqrtLimit - 1000, sqrtLimit + 1000), __primes)
+    testPrimes = [x for x in __primes if x in range(
+        sqrtLimit - 1000, sqrtLimit + 1000)]
 
     ratioMin = Decimal(2.0)
     minPhi = 0
     minI = 0
     for phi in [
-            i * j for (i, j) in itertools.combinations(testPrimes, 2) if i * j < limit]:
+            i *
+            j for (
+                i,
+                j) in itertools.combinations(
+                testPrimes,
+                2) if i *
+            j < limit]:
         tot = totient(phi)
         if isPermutation(str(phi), str(tot)):
             ratio = Decimal(Decimal(phi) / Decimal(tot))
@@ -78,4 +84,8 @@ def findMinimalRatio(limit):
     return (minI, minPhi, ratioMin)
 
 minTuple = findMinimalRatio(10**7)
-print "The number {0} has the minimal ratio {0}/{1} = {2}".format(minTuple[0], minTuple[1], minTuple[2])
+print(
+    "The number {0} has the minimal ratio {0}/{1} = {2}".format(
+        minTuple[0],
+        minTuple[1],
+        minTuple[2]))

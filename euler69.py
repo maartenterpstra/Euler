@@ -14,4 +14,4 @@ for i in range(2, 1000001):
         maxVal = frac
         maxI = i
 
-print i, maxVal
+print(i, maxVal)

@@ -4,7 +4,7 @@ def isPandigital(num, n=9):
     if num < 10 ** (n - 1) or num > 10 ** (n):
         return False
 
-    numskeys = nums.keys()
+    numskeys = list(nums.keys())
     while num > 0:
         digit = num % 10
         if digit in numskeys:
@@ -14,7 +14,7 @@ def isPandigital(num, n=9):
         num /= 10
         numskeys = numskeys + [digit]
 
-    for p in xrange(1, n + 1):
+    for p in range(1, n + 1):
         if p not in numskeys:
             return False
 
@@ -29,17 +29,17 @@ def isPrime(x):
     if x % 2 == 0:
         return False
 
-    for p in xrange(3, int(x ** 0.5) + 1, 2):
+    for p in range(3, int(x ** 0.5) + 1, 2):
         if x % p == 0:
             return False
 
     return True
 
 m = 0
-for x in xrange(3, int(1e7), 2):
+for x in range(3, int(1e7), 2):
     if isPandigital(x, len(str(x))):
         if isPrime(x):
             m = x
 
 
-print m
+print(m)

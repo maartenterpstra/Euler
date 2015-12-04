@@ -8,7 +8,7 @@ def sieve(limit):
     for (i, isprime) in enumerate(a):
         if isprime:
             yield i
-            for n in xrange(i * i, limit, i):     # Mark factors non-prime
+            for n in range(i * i, limit, i):     # Mark factors non-prime
                 a[n] = False
 
 # sqrt(1000000000) = 31622
@@ -33,7 +33,7 @@ def isPrime(n):
             return False
     return True
 
-primeList = filter(lambda x: x < 9000, __primes)
+primeList = [x for x in __primes if x < 9000]
 
 
 # --------------------------------------
@@ -80,4 +80,4 @@ generatePrimeSet()
 minSum = 2147483647  # 2^31 - 1
 for key in primeSet:
     minSum = min(minSum, continuousIntersection([key], primeSet[key], 4))
-print minSum
+print(minSum)

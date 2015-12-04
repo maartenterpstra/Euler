@@ -10,4 +10,5 @@ def isTriangular(s):
     test = ((1 + 8 * s) ** 0.5 - 1) / 2.0
     return int(test) == test
 
-print sum(map(lambda s: isTriangular(s), [sum([ord(x) - ord('A') + 1 for x in list(w)]) for w in words]))
+print(sum([isTriangular(s)
+           for s in [sum([ord(x) - ord('A') + 1 for x in list(w)]) for w in words]]))

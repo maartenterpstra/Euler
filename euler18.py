@@ -26,4 +26,4 @@ def searchTriangle(triangle):
     return triangle[0][0]
 
 
-print searchTriangle(triangle)
+print((searchTriangle(triangle)))

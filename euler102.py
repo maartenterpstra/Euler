@@ -43,4 +43,4 @@ for line in lines:
     if triangle.contains(origin):
         containsOrigin += 1
 
-print containsOrigin
+print(containsOrigin)

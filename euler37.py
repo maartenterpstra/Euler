@@ -9,7 +9,7 @@ def isPrime(n):
     if n % 2 == 0:
         return False
 
-    for x in xrange(3, int(n ** 0.5) + 1, 2):
+    for x in range(3, int(n ** 0.5) + 1, 2):
         if n % x == 0:
             return False
 
@@ -36,7 +36,7 @@ def truncated_left(n):
     return l
 
 limit = int(1e6)
-primes = (x for x in xrange(11, limit + 1) if isPrime(x))
+primes = (x for x in range(11, limit + 1) if isPrime(x))
 
 s = 0
 found = 0
@@ -47,11 +47,11 @@ for p in primes:
     if truncable:
         found += 1
         s += p
-        print p
+        print(p)
 
     # it said there are only 11 such primes
     if found == 11:
         break
 
-print ""
-print s
+print("")
+print(s)

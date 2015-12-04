@@ -37,15 +37,15 @@ def is_prime(n, _precision_for_huge_n=16):
                    for a in _known_primes[:_precision_for_huge_n])
 
 _known_primes = [2, 3]
-_known_primes += [x for x in xrange(5, 1000, 2) if is_prime(x)]
+_known_primes += [x for x in range(5, 1000, 2) if is_prime(x)]
 
 limit = int(1e8)
-primes = [is_prime(x) for x in xrange(limit + 1)]
+primes = [is_prime(x) for x in range(limit + 1)]
 
 s = 1
-for x in xrange(limit - 2, 1, -4):
+for x in range(limit - 2, 1, -4):
     possiblePrimes = set(
-        [y + (x / y) for y in xrange(1, int((x + 1) ** 0.5) + 1) if x % y == 0])
+        [y + (x / y) for y in range(1, int((x + 1) ** 0.5) + 1) if x % y == 0])
     if all(primes[p] for p in possiblePrimes):
         s += x
-print s
+print(s)

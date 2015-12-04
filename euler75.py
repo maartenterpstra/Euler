@@ -23,4 +23,4 @@ def ExactlyOneRightSidedTriangle(limit=1500000):
 
     return count
 
-print ExactlyOneRightSidedTriangle()
+print(ExactlyOneRightSidedTriangle())

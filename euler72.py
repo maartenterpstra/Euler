@@ -12,7 +12,7 @@ def sieve(limit):
     for (i, isprime) in enumerate(a):
         if isprime:
             yield i
-            for n in xrange(i * i, limit, i):     # Mark factors non-prime
+            for n in range(i * i, limit, i):     # Mark factors non-prime
                 a[n] = False
 
 # sqrt(1000000000) = 31622
@@ -55,7 +55,7 @@ def totient(n):
 
 
 limit = 10**6
-phi = range(0, limit + 1)
+phi = list(range(0, limit + 1))
 count = 0
 for d in range(2, limit + 1):
     if phi[d] == d:
@@ -63,4 +63,4 @@ for d in range(2, limit + 1):
             phi[j] = phi[j] / d * (d - 1)
     count += phi[d]
 
-print count
+print(count)

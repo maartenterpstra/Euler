@@ -9,7 +9,7 @@ def isPrime(n):
     if n % 2 == 0:
         return False
 
-    for x in xrange(3, int(n ** 0.5) + 1, 2):
+    for x in range(3, int(n ** 0.5) + 1, 2):
         if n % x == 0:
             return False
 
@@ -36,4 +36,5 @@ def circlesArePrime(num):
             return False
 
 limit = int(1e6)
-print len([z for z in (x for x in xrange(2, limit + 1) if isPrime(x)) if circlesArePrime(z)])
+print(len([z for z in (x for x in range(2, limit + 1)
+                       if isPrime(x)) if circlesArePrime(z)]))

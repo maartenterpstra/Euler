@@ -10,7 +10,7 @@ for i in range(len(lines)):
 # Perform Prim's algorithm
 nodesInMST = [0]
 edgesInMST = []
-while sorted(nodesInMST) != range(len(lines)):
+while sorted(nodesInMST) != list(range(len(lines))):
     minConnectsToTree = min([q for q in edges if q[0] in nodesInMST and q[
                             1] not in nodesInMST], key=lambda x: x[2])
     edgesInMST.append(minConnectsToTree)
@@ -20,4 +20,4 @@ while sorted(nodesInMST) != range(len(lines)):
 curWeight = sum(x[2] for x in edges) / 2
 mstWeight = sum([x[2] for x in edgesInMST])
 saving = curWeight - mstWeight
-print "{0} - {1} = {2}".format(curWeight, mstWeight, saving)
+print(("{0} - {1} = {2}".format(curWeight, mstWeight, saving)))
