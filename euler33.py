@@ -1,5 +1,6 @@
 from fractions import Fraction
 from decimal import Decimal
+from functools import reduce
 fracs = []
 limit = 100
 for i in range(10, limit):

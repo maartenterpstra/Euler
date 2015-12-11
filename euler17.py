@@ -33,12 +33,12 @@ def getLength(n):
             break
         elif n >= 100:
             rest = n % 100
-            text += belowTwenties[(n - rest) / 100] + \
+            text += belowTwenties[(n - rest) // 100] + \
                 hundred + ("and" if rest > 0 else "")
             n = rest
         elif n >= 20:
             rest = n % 10
-            text += tens[(n - rest) / 10 - 2]
+            text += tens[(n - rest) // 10 - 2]
             n = rest
         elif n > 0:
             text += belowTwenties[n]
@@ -46,4 +46,4 @@ def getLength(n):
 
     return len(text)
 
-print((sum([getLength(x) for x in range(1, 1001)])))
+print(sum([getLength(x) for x in range(1, 1001)]))
